@@ -9,20 +9,20 @@
     可正常访问项目
  
  ## 项目结构
- chen@chen:~/go/src/go-debug$ tree -L 2
-.
-├── cmd
-├── Dockerfile
-├── Gopkg.lock
-├── Gopkg.toml
-├── main.go
-├── vendor
-│   ├── github.com
-│   └── golang.org
-└── _vendor-20200225104457
-    ├── github.com
-    └── golang.org
-    
+     chen@chen:~/go/src/go-debug$ tree -L 2
+    .
+    ├── cmd
+    ├── Dockerfile
+    ├── Gopkg.lock
+    ├── Gopkg.toml
+    ├── main.go
+    ├── vendor
+    │   ├── github.com
+    │   └── golang.org
+    └── _vendor-20200225104457
+        ├── github.com
+        └── golang.org
+
 ##  Dockerfile文件
     # build阶段
     FROM golang:1.10 AS build
