@@ -55,4 +55,7 @@
        eg : root@chen:/home/chen/go/src/go-debug# docker run --rm -ti -p 1324:1323 echo-app:1.0.1
     
     
-    
+## 上传镜像到阿里云镜像仓库
+    $ sudo docker login --username=chenjiacheng@soundbus-rd registry.cn-hangzhou.aliyuncs.com
+    $ sudo docker tag [ImageId] registry.cn-hangzhou.aliyuncs.com/sonicmoving/debug-service:[镜像版本号]
+    $ sudo docker push registry.cn-hangzhou.aliyuncs.com/sonicmoving/debug-service:[镜像版本号]    

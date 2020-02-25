@@ -1,11 +1,13 @@
 package main
 
 import (
-	"net/http"
+	"fmt"
 	"github.com/labstack/echo"
+	"net/http"
+	"time"
 )
 
-var(
+var (
 	result string
 )
 
@@ -13,6 +15,16 @@ func main() {
 	e := echo.New()
 
 	e.GET("/echo", func(c echo.Context) error {
+		t1 := time.Now().Year()       //年
+		t2 := time.Now().Month()      //月
+		t3 := time.Now().Day()        //日
+		t4 := time.Now().Hour()       //小时
+		t5 := time.Now().Minute()     //分钟
+		t6 := time.Now().Second()     //秒
+		t7 := time.Now().Nanosecond() //纳秒
+		fmt.Print("请求时间；")
+		currentTimeData := time.Date(t1, t2, t3, t4, t5, t6, t7, time.Local) //获取当前时间，返回当前时间Time
+		fmt.Println(currentTimeData)                                         //打印结果：2017-04-11 12:52:52.794351777 +0800 CST
 		return c.String(http.StatusOK, "Hello, World!")
 	})
 
@@ -42,7 +54,7 @@ func show(c echo.Context) error {
 	// 从请求参数里获取 team 和 member 的值
 	team := c.QueryParam("team")
 	member := c.QueryParam("member")
-	return c.String(http.StatusOK, "team:" + team + ", member:" + member)
+	return c.String(http.StatusOK, "team:"+team+", member:"+member)
 }
 
 // e.POST("/save", save)
@@ -50,5 +62,5 @@ func save(c echo.Context) error {
 	// 获取 name 和 email 的值
 	name := c.FormValue("name")
 	email := c.FormValue("email")
-	return c.String(http.StatusOK, "name:" + name + ", email:" + email)
+	return c.String(http.StatusOK, "name:"+name+", email:"+email)
 }
