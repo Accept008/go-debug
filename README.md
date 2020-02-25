@@ -42,15 +42,10 @@
 
     # 生产阶段(实现大幅度缩小镜像大小)
     FROM scratch AS prod
-
     # 从buil阶段拷贝二进制文件
     COPY --from=build /go/src/go-debug .
     CMD ["./go-debug"]
 
-
-    # 镜像打包命令
-    # docker build -t 镜像名:版本号 .
-    #   eg: root@chen:/home/chen/go/src/go-debug# docker build -t echo-app:1.0.1 .
  
  ## 项目本地镜像打包、启动命令
        打包命令 ->  docker build -t 镜像名:版本号 .
